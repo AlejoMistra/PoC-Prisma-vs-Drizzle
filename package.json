@@ -1,0 +1,35 @@
+{
+  "name": "poc-prisma-vs-drizzle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run dev:prisma\" \"npm run dev:drizzle\"",
+    "build": "npm run build:prisma && npm run build:drizzle",
+    "dev:prisma": "npm run dev --workspace prisma-api",
+    "dev:drizzle": "npm run dev --workspace drizzle-api",
+    "build:prisma": "npm run build --workspace prisma-api",
+    "build:drizzle": "npm run build --workspace drizzle-api",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "prisma:migrate": "npm run prisma:migrate --workspace prisma-api",
+    "drizzle:migrate": "npm run drizzle:migrate --workspace drizzle-api"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://localhost:26831/AlejoMistra/PoC-Prisma-vs-Drizzle"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^10.0.4",
+    "typescript": "^7.0.2"
+  },
+  "private": "true",
+  "workspaces": [
+    "apps/prisma-api",
+    "apps/drizzle-api"
+  ]
+}
