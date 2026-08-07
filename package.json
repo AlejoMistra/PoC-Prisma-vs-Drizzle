@@ -14,11 +14,12 @@
     "db:up": "docker compose up -d",
     "db:down": "docker compose down",
     "prisma:migrate": "npm run prisma:migrate --workspace prisma-api",
-    "drizzle:migrate": "npm run drizzle:migrate --workspace drizzle-api"
+    "drizzle:migrate": "npm run drizzle:migrate --workspace drizzle-api",
+    "drizzle:generate": "npm run drizzle:generate --workspace drizzle-api"
   },
   "repository": {
     "type": "git",
-    "url": "http://localhost:26831/AlejoMistra/PoC-Prisma-vs-Drizzle"
+    "url": "https://github.com/AlejoMistra/PoC-Prisma-vs-Drizzle"
   },
   "keywords": [],
   "author": "",
@@ -27,7 +28,7 @@
     "concurrently": "^10.0.4",
     "typescript": "^7.0.2"
   },
-  "private": "true",
+  "private": true,
   "workspaces": [
     "apps/prisma-api",
     "apps/drizzle-api"
