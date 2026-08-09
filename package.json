@@ -32,5 +32,12 @@
   "workspaces": [
     "apps/prisma-api",
     "apps/drizzle-api"
-  ]
+  ],
+  "allowScripts": {
+    "@prisma/engines@7.9.1": true,
+    "es5-ext@0.10.64": true,
+    "prisma@7.9.1": true,
+    "esbuild@0.15.18": true,
+    "esbuild@0.28.1": true
+  }
 }
