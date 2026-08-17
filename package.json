@@ -5,17 +5,17 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"npm run dev:prisma\" \"npm run dev:drizzle\"",
-    "build": "npm run build:prisma && npm run build:drizzle",
-    "dev:prisma": "npm run dev --workspace prisma-api",
-    "dev:drizzle": "npm run dev --workspace drizzle-api",
-    "build:prisma": "npm run build --workspace prisma-api",
-    "build:drizzle": "npm run build --workspace drizzle-api",
+    "dev": "concurrently \"pnpm run dev:prisma\" \"pnpm run dev:drizzle\"",
+    "build": "pnpm run build:prisma && pnpm run build:drizzle",
+    "dev:prisma": "pnpm --filter prisma-api run dev",
+    "dev:drizzle": "pnpm --filter drizzle-api run dev",
+    "build:prisma": "pnpm --filter prisma-api run build",
+    "build:drizzle": "pnpm --filter drizzle-api run build",
     "db:up": "docker compose up -d",
     "db:down": "docker compose down",
-    "prisma:migrate": "npm run prisma:migrate --workspace prisma-api",
-    "drizzle:migrate": "npm run drizzle:migrate --workspace drizzle-api",
-    "drizzle:generate": "npm run drizzle:generate --workspace drizzle-api"
+    "prisma:migrate": "pnpm --filter prisma-api run prisma:migrate",
+    "drizzle:migrate": "pnpm --filter drizzle-api run drizzle:migrate",
+    "drizzle:generate": "pnpm --filter drizzle-api run drizzle:generate"
   },
   "repository": {
     "type": "git",
@@ -28,9 +28,5 @@
     "concurrently": "^10.0.4",
     "typescript": "^7.0.2"
   },
-  "private": true,
-  "workspaces": [
-    "apps/prisma-api",
-    "apps/drizzle-api"
-  ]
+  "private": true
 }

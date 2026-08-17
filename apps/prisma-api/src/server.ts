@@ -13,6 +13,10 @@ app.get('/health', (_req, res) => {
   res.json({ ok: true, orm: 'prisma' });
 });
 
+app.get('/', (_req, res) => {
+  res.json({ message: 'Welcome to the Prisma API!' });
+});
+
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use('/comments', commentsRouter);
