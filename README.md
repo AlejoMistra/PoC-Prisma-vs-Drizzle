@@ -1,6 +1,6 @@
 # PoC Prisma vs Drizzle
 
-Boilerplate inicial para comparar **Prisma** y **Drizzle** sobre el mismo dominio (Users, Posts, Comments), con **Express + TypeScript + PostgreSQL**.
+Proof of Concept para comparar **Prisma** y **Drizzle** sobre el mismo dominio (Users, Posts, Comments), con **Express + TypeScript + PostgreSQL**.
 
 ## Estructura
 
