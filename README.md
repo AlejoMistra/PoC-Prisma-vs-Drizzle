@@ -91,9 +91,9 @@ pnpm run drizzle:migrate
 - `GET /posts/with-relations-join` (LEFT JOIN)
 - `POST /comments`
 
-## Próximos casos de prueba sugeridos
+## Próximos casos de prueba
 
-1. Medir DX en migraciones (`prisma migrate` vs `drizzle-kit`).
-2. Comparar complejidad de CRUD básico.
-3. Probar inserciones anidadas y manejo transaccional.
+1. Medir DX en gestión de esquemas y migraciones.
+2. Comparar complejidad de CRUDs básicos.
+3. Comparar inserciones complejas (Nested Writes).
 4. Comparar lecturas relacionales y comportamiento N+1.
