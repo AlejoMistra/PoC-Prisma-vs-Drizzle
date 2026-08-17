@@ -18,7 +18,7 @@ Proof of Concept para comparar **Prisma** y **Drizzle** sobre el mismo dominio (
 1. Instalar dependencias:
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 2. Configurar variables de entorno:
@@ -30,7 +30,7 @@ Proof of Concept para comparar **Prisma** y **Drizzle** sobre el mismo dominio (
 3. Levantar PostgreSQL:
 
    ```bash
-   npm run db:up
+   pnpm run db:up
    ```
 
 ## Migraciones
@@ -38,14 +38,14 @@ Proof of Concept para comparar **Prisma** y **Drizzle** sobre el mismo dominio (
 ### Prisma
 
 ```bash
-npm run prisma:migrate
+pnpm run prisma:migrate
 ```
 
 ### Drizzle
 
 ```bash
-npm run drizzle:generate
-npm run drizzle:migrate
+pnpm run drizzle:generate
+pnpm run drizzle:migrate
 ```
 
 ## Ejecutar APIs
@@ -53,19 +53,19 @@ npm run drizzle:migrate
 - Ambas en paralelo:
 
   ```bash
-  npm run dev
+  pnpm run dev
   ```
 
 - Solo Prisma:
 
   ```bash
-  npm run dev:prisma
+  pnpm run dev:prisma
   ```
 
 - Solo Drizzle:
 
   ```bash
-  npm run dev:drizzle
+  pnpm run dev:drizzle
   ```
 
 ## Endpoints base para casos de prueba
