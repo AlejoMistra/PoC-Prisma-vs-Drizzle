@@ -1,0 +1,27 @@
+info:
+  name: Create comment
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: http://localhost:{{DRIZZLE_API_PORT}}/comments
+  auth: inherit
+
+headers:
+  Content-Type: application/json
+
+body:
+  mimeType: application/json
+  text: |
+    {
+      "content": "Comentario Drizzle",
+      "postId": {{POST_ID}},
+      "authorId": {{USER_ID}}
+    }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

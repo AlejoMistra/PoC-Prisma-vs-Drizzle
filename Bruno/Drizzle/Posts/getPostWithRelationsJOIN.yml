@@ -1,0 +1,15 @@
+info:
+  name: Get posts with relations (JOIN)
+  type: http
+  seq: 5
+
+http:
+  method: GET
+  url: http://localhost:{{DRIZZLE_API_PORT}}/posts/with-relations-join
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

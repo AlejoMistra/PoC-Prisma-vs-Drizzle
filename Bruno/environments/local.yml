@@ -1,0 +1,17 @@
+name: local
+variables:
+  - name: PRISMA_API_PORT
+    value: "3001"
+    description: ""
+  - name: DRIZZLE_API_PORT
+    value: "3002"
+    description: ""
+  - name: USER_ID
+    value: "1"
+    description: ""
+  - name: POST_ID
+    value: "1"
+    description: ""
+  - name: COMMENT_ID
+    value: "1"
+    description: ""

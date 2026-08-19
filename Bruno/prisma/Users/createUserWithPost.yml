@@ -1,0 +1,30 @@
+info:
+  name: Create user with post
+  type: http
+  seq: 4
+
+http:
+  method: POST
+  url: http://localhost:{{PRISMA_API_PORT}}/users/with-post
+  auth: inherit
+
+headers:
+  Content-Type: application/json
+
+body:
+  mimeType: application/json
+  text: |
+    {
+      "name": "User With Post Prisma",
+      "email": "user.with.post.prisma@mail.com",
+      "post": {
+        "title": "Post anidado Prisma",
+        "content": "Creado junto al usuario"
+      }
+    }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

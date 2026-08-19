@@ -1,0 +1,15 @@
+info:
+  name: Delete post
+  type: http
+  seq: 5
+
+http:
+  method: DELETE
+  url: http://localhost:{{PRISMA_API_PORT}}/posts/{{POST_ID}}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

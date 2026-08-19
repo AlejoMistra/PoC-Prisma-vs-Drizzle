@@ -1,0 +1,15 @@
+info:
+  name: Get post by id
+  type: http
+  seq: 2
+
+http:
+  method: GET
+  url: http://localhost:{{PRISMA_API_PORT}}/posts/{{POST_ID}}
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

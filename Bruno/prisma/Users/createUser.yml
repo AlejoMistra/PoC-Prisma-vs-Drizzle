@@ -1,0 +1,25 @@
+info:
+  name: Create user
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:{{PRISMA_API_PORT}}/users
+  headers:
+    - name: Content-Type
+      value: application/json
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Juan",
+        "email": "juan123@mail.com"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,15 @@
+info:
+  name: Get all comments
+  type: http
+  seq: 1
+
+http:
+  method: GET
+  url: http://localhost:{{PRISMA_API_PORT}}/comments
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,15 @@
+info:
+  name: Create user with post
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: http://localhost:{{DRIZZLE_API_PORT}}/users/with-post
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

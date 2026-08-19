@@ -1,0 +1,27 @@
+info:
+  name: Create post
+  type: http
+  seq: 3
+
+http:
+  method: POST
+  url: http://localhost:{{PRISMA_API_PORT}}/posts
+  auth: inherit
+
+headers:
+  Content-Type: application/json
+
+body:
+  mimeType: application/json
+  text: |
+    {
+      "title": "Post Prisma",
+      "content": "Comparando Prisma vs Drizzle",
+      "authorId": {{USER_ID}}
+    }
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
