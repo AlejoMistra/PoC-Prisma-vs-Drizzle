@@ -1,0 +1,129 @@
+{
+  "shared_variables_sugeridas": {
+    "USER_ID": 1,
+    "POST_ID": 1,
+    "COMMENT_ID": 1
+  },
+  "prisma": {
+    "users": {
+      "create_POST_/users": {
+        "name": "Sofía Martínez",
+        "email": "sofia.martinez+demo@acmeops.io"
+      },
+      "update_PUT_or_PATCH_/users/{{USER_ID}}": {
+        "name": "Sofía Martínez (Updated)",
+        "email": "sofia.martinez+updated@acmeops.io"
+      },
+      "createWithPost_POST_/users/with-post": {
+        "name": "Lucía Navarro",
+        "email": "lucia.navarro+demo@acmeops.io",
+        "post": {
+          "title": "Kickoff automatización de soporte",
+          "content": "Reducir tiempos operativos con reglas de asignación."
+        }
+      },
+      "getAll_GET_/users": null,
+      "getById_GET_/users/{{USER_ID}}": null,
+      "delete_DELETE_/users/{{USER_ID}}": null
+    },
+    "posts": {
+      "create_POST_/posts": {
+        "title": "Roadmap Q4: onboarding y SLAs",
+        "content": "Priorizamos onboarding autoguiado y seguimiento de SLAs por cliente.",
+        "authorId": "{{USER_ID}}"
+      },
+      "update_PUT_or_PATCH_/posts/{{POST_ID}}": {
+        "title": "Roadmap Q4 actualizado",
+        "content": "Se agregan reportes semanales y mejoras de performance.",
+        "authorId": "{{USER_ID}}"
+      },
+      "getAll_GET_/posts": null,
+      "getById_GET_/posts/{{POST_ID}}": null,
+      "getWithRelations_GET_/posts/with-relations": null,
+      "delete_DELETE_/posts/{{POST_ID}}": null
+    },
+    "comments": {
+      "create_POST_/comments": {
+        "content": "Muy buena priorización para impacto rápido.",
+        "postId": "{{POST_ID}}",
+        "authorId": "{{USER_ID}}"
+      },
+      "update_PUT_or_PATCH_/comments/{{COMMENT_ID}}": {
+        "content": "Comentario actualizado para la demo.",
+        "postId": "{{POST_ID}}",
+        "authorId": "{{USER_ID}}"
+      },
+      "getAll_GET_/comments": null,
+      "getById_GET_/comments/{{COMMENT_ID}}": null,
+      "delete_DELETE_/comments/{{COMMENT_ID}}": null
+    }
+  },
+  "drizzle": {
+    "users": {
+      "create_POST_/users": {
+        "name": "Tomás Rojas",
+        "email": "tomas.rojas+demo@acmeops.io"
+      },
+      "update_PUT_or_PATCH_/users/{{USER_ID}}": {
+        "name": "Tomás Rojas (Updated)",
+        "email": "tomas.rojas+updated@acmeops.io"
+      },
+      "createWithPost_POST_/users/with-post": {
+        "name": "Diego Suárez",
+        "email": "diego.suarez+demo@acmeops.io",
+        "post": {
+          "title": "Plan de hardening de APIs",
+          "content": "Rate limiting por tenant y rotación de secretos."
+        }
+      },
+      "getAll_GET_/users": null,
+      "getById_GET_/users/{{USER_ID}}": null,
+      "delete_DELETE_/users/{{USER_ID}}": null
+    },
+    "posts": {
+      "create_POST_/posts": {
+        "title": "Refactor de autenticación",
+        "content": "Middleware de sesión y refresh tokens.",
+        "authorId": "{{USER_ID}}"
+      },
+      "update_PUT_or_PATCH_/posts/{{POST_ID}}": {
+        "title": "Refactor de autenticación (Updated)",
+        "content": "Se agregó rotación de tokens y auditoría.",
+        "authorId": "{{USER_ID}}"
+      },
+      "getAll_GET_/posts": null,
+      "getById_GET_/posts/{{POST_ID}}": null,
+      "getWithRelationsRQ_GET_/posts/with-relations-rq": null,
+      "getWithRelationsJoin_GET_/posts/with-relations-join": null,
+      "delete_DELETE_/posts/{{POST_ID}}": null
+    },
+    "comments": {
+      "create_POST_/comments": {
+        "content": "Excelente enfoque, quedó muy claro.",
+        "postId": "{{POST_ID}}",
+        "authorId": "{{USER_ID}}"
+      },
+      "update_PUT_or_PATCH_/comments/{{COMMENT_ID}}": {
+        "content": "Comentario actualizado en Drizzle.",
+        "postId": "{{POST_ID}}",
+        "authorId": "{{USER_ID}}"
+      },
+      "getAll_GET_/comments": null,
+      "getById_GET_/comments/{{COMMENT_ID}}": null,
+      "delete_DELETE_/comments/{{COMMENT_ID}}": null
+    }
+  },
+  "validation_400_opcional": {
+    "user_sin_email": {
+      "name": "User inválido"
+    },
+    "post_sin_authorId": {
+      "title": "Post inválido",
+      "content": "Falta authorId"
+    },
+    "comment_sin_postId": {
+      "content": "Comentario inválido",
+      "authorId": "{{USER_ID}}"
+    }
+  }
+}
