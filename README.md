@@ -91,7 +91,7 @@ pnpm run drizzle:migrate
 - `GET /posts/with-relations-join` (LEFT JOIN)
 - `POST /comments`
 
-## Próximos casos de prueba
+## Casos de prueba a mostrar en la demo
 
 1. Medir DX en gestión de esquemas y migraciones.
 2. Comparar complejidad de CRUDs básicos.
