@@ -20,3 +20,6 @@ dist
 
 # Prisma Client output
 apps/prisma-api/src/generated/prisma/
+
+# Bruno environment files
+Bruno/environments
