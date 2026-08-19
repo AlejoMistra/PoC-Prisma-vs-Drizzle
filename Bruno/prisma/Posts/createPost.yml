@@ -6,19 +6,20 @@ info:
 http:
   method: POST
   url: http://localhost:{{PRISMA_API_PORT}}/posts
+  body:
+    type: json
+    data: |2-
+       {
+              "title": "Boca Juniors",
+              "content": "El pibe Janson.",
+              "authorId": 3
+            }
   auth: inherit
 
-headers:
-  Content-Type: application/json
-
-body:
-  mimeType: application/json
-  text: |
-    {
-      "title": "Post Prisma",
-      "content": "Comparando Prisma vs Drizzle",
-      "authorId": {{USER_ID}}
-    }
+runtime:
+  variables:
+    - name: USER_ID
+      value: ""
 
 settings:
   encodeUrl: true

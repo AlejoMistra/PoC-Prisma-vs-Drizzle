@@ -20,3 +20,14 @@ commentsRouter.post('/', async (req, res) => {
 
   return res.status(201).json(comment);
 });
+
+commentsRouter.get('/', async (_req, res) => {
+  const comments = await prisma.comment.findMany({
+    include: {
+      author: true,
+      post: true
+    }
+  });
+
+  return res.json(comments);
+});

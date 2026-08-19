@@ -6,6 +6,17 @@ info:
 http:
   method: POST
   url: http://localhost:{{DRIZZLE_API_PORT}}/users
+  body:
+    type: json
+    data: |2-
+       {
+              "name": "Lucía Navarro",
+              "email": "lucia.navarro+demo@acmeops.io",
+              "post": {
+                "title": "Kickoff automatización de soporte",
+                "content": "Reducir tiempos operativos con reglas de asignación."
+              }
+            }
   auth: inherit
 
 settings:

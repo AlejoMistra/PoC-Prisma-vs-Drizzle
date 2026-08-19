@@ -6,19 +6,15 @@ info:
 http:
   method: POST
   url: http://localhost:{{DRIZZLE_API_PORT}}/posts
+  body:
+    type: json
+    data: |-
+      {
+              "title": "Roadmap Q4: onboarding y SLAs",
+              "content": "Priorizamos onboarding autoguiado y seguimiento de SLAs por cliente.",
+              "authorId": 1
+            }
   auth: inherit
-
-headers:
-  Content-Type: application/json
-
-body:
-  mimeType: application/json
-  text: |
-    {
-      "title": "Post Drizzle",
-      "content": "Comparando Prisma vs Drizzle",
-      "authorId": {{USER_ID}}
-    }
 
 settings:
   encodeUrl: true

@@ -76,24 +76,12 @@ usersRouter.delete('/:id', async (req, res) => {
   }
 
   try {
-    await prisma.user.delete({
-      where: { id }
-    });
-
+    await prisma.user.delete({ where: { id } });
     return res.status(204).send();
   } catch (error: any) {
-    // Prisma "record not found"
     if (error?.code === 'P2025') {
       return res.status(404).json({ error: 'user not found' });
     }
-
-    // Posible FK constraint si no hay cascade
-    if (error?.code === 'P2003') {
-      return res.status(409).json({
-        error: 'cannot delete user with related records'
-      });
-    }
-
     return res.status(500).json({ error: 'internal server error' });
   }
 });
