@@ -1,4 +1,3 @@
-import './config/env.js';
 import express from 'express';
 import { env } from './config/env.js';
 import { usersRouter } from './routes/users.js';
