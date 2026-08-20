@@ -1,7 +1,7 @@
 info:
   name: Get comments with relations
   type: http
-  seq: 5
+  seq: 4
 
 http:
   method: GET

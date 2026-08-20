@@ -1,11 +1,18 @@
 info:
-  name: Get all users
+  name: Create user
   type: http
-  seq: 1
+  seq: 3
 
 http:
-  method: GET
+  method: POST
   url: http://localhost:{{DRIZZLE_API_PORT}}/users
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Tomás Rojas",
+        "email": "tomas.rojas+demo@acmeops.io"
+      }
   auth: inherit
 
 settings:
