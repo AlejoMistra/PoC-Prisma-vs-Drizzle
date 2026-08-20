@@ -1,11 +1,19 @@
 info:
-  name: Get all posts
+  name: Create post
   type: http
-  seq: 1
+  seq: 5
 
 http:
-  method: GET
+  method: POST
   url: http://localhost:{{PRISMA_API_PORT}}/posts
+  body:
+    type: json
+    data: |-
+      {
+        "title": "Prueba",
+        "content": "Prueba",
+        "authorId": 2
+      }
   auth: inherit
 
 settings:
