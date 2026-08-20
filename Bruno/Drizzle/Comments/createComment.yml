@@ -11,7 +11,11 @@ http:
     data: |-
       {
               "content": "Excelente enfoque, quedó muy claro.",
+<<<<<<< HEAD
               "postId": 1,s
+=======
+              "postId": 1,
+>>>>>>> 74a88a9354ccc464b0b932b3beb26c3c05f1f757
               "authorId": 1
             }
   auth: inherit

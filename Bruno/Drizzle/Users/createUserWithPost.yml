@@ -8,6 +8,7 @@ http:
   url: http://localhost:{{DRIZZLE_API_PORT}}/users/with-post
   body:
     type: json
+<<<<<<< HEAD
     data: |-
       {
               "name": "Diego Martinez",
@@ -17,6 +18,9 @@ http:
                 "content": "Rate limiting por tenant y rotación de secretos."
               }
             }
+=======
+    data: ""
+>>>>>>> 74a88a9354ccc464b0b932b3beb26c3c05f1f757
   auth: inherit
 
 settings:

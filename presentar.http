@@ -1,0 +1,151 @@
+### =========================================
+### PRISMA API
+### Base URL sugerida:
+### @basePrisma = http://localhost:3001
+### =========================================
+
+@basePrisma = http://localhost:3001
+@userId = 1
+@postId = 1
+@commentId = 1
+
+### Users - get all
+GET {{basePrisma}}/users
+
+### Users - get by id
+GET {{basePrisma}}/users/{{userId}}
+
+### Users - create
+POST {{basePrisma}}/users
+Content-Type: application/json
+
+{
+  "name": "Sofía Martínez",
+  "email": "sofia.martinez+demo@acmeops.io"
+}
+
+### Users - create with post
+POST {{basePrisma}}/users/with-post
+Content-Type: application/json
+
+{
+  "name": "Lucía Navarro",
+  "email": "lucia.navarro+demo@acmeops.io",
+  "post": {
+    "title": "Kickoff automatización de soporte",
+    "content": "Reducir tiempos operativos con reglas de asignación."
+  }
+}
+
+### Users - delete
+DELETE {{basePrisma}}/users/{{userId}}
+
+### Posts - create
+POST {{basePrisma}}/posts
+Content-Type: application/json
+
+{
+  "title": "Roadmap Q4: onboarding y SLAs",
+  "content": "Priorizamos onboarding autoguiado y seguimiento de SLAs por cliente.",
+  "authorId": 1
+}
+
+### Posts - get with relations
+GET {{basePrisma}}/posts/with-relations
+
+### Posts - get by id
+GET {{basePrisma}}/posts/{{postId}}
+
+### Posts - delete (cascade comments)
+DELETE {{basePrisma}}/posts/{{postId}}
+
+### Comments - create
+POST {{basePrisma}}/comments
+Content-Type: application/json
+
+{
+  "content": "Muy buena priorización para impacto rápido.",
+  "postId": 1,
+  "authorId": 1
+}
+
+### Comments - get all
+GET {{basePrisma}}/comments
+
+
+### =========================================
+### DRIZZLE API
+### Base URL sugerida:
+### @baseDrizzle = http://localhost:3002
+### =========================================
+
+@baseDrizzle = http://localhost:3002
+@dUserId = 1
+@dPostId = 1
+@dCommentId = 1
+
+### Users - get all
+GET {{baseDrizzle}}/users
+
+### Users - get by id
+GET {{baseDrizzle}}/users/{{dUserId}}
+
+### Users - create
+POST {{baseDrizzle}}/users
+Content-Type: application/json
+
+{
+  "name": "Tomás Rojas",
+  "email": "tomas.rojas+demo@acmeops.io"
+}
+
+### Users - create with post
+POST {{baseDrizzle}}/users/with-post
+Content-Type: application/json
+
+{
+  "name": "Diego Suárez",
+  "email": "diego.suarez+demo@acmeops.io",
+  "post": {
+    "title": "Plan de hardening de APIs",
+    "content": "Rate limiting por tenant y rotación de secretos."
+  }
+}
+
+### Users - delete
+DELETE {{baseDrizzle}}/users/{{dUserId}}
+
+### Posts - create
+POST {{baseDrizzle}}/posts
+Content-Type: application/json
+
+{
+  "title": "Refactor de autenticación",
+  "content": "Middleware de sesión y refresh tokens.",
+  "authorId": 1
+}
+
+### Posts - get with relations (relational query)
+GET {{baseDrizzle}}/posts/with-relations-rq
+
+### Posts - get with relations (manual join)
+GET {{baseDrizzle}}/posts/with-relations-join
+
+### Posts - get by id
+GET {{baseDrizzle}}/posts/{{dPostId}}
+
+### Posts - delete (cascade comments)
+DELETE {{baseDrizzle}}/posts/{{dPostId}}
+
+### Comments - create
+POST {{baseDrizzle}}/comments
+Content-Type: application/json
+
+{
+  "content": "Excelente enfoque, quedó muy claro.",
+  "postId": 1,
+  "authorId": 1
+}
+
+### Comments - get all
+GET {{baseDrizzle}}/comments

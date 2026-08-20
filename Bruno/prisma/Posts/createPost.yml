@@ -8,6 +8,7 @@ http:
   url: http://localhost:{{PRISMA_API_PORT}}/posts
   body:
     type: json
+<<<<<<< HEAD
     data: |-
       {
       "title": "Roadmap Q4: onboarding y SLAs",
@@ -16,6 +17,21 @@ http:
       }
   auth: inherit
 
+=======
+    data: |2-
+       {
+              "title": "Boca Juniors",
+              "content": "El pibe Janson.",
+              "authorId": 3
+            }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: USER_ID
+      value: ""
+
+>>>>>>> 74a88a9354ccc464b0b932b3beb26c3c05f1f757
 settings:
   encodeUrl: true
   timeout: 0

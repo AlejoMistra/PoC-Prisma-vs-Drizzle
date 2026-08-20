@@ -111,3 +111,49 @@ postsRouter.get('/with-relations-join', async (_req, res) => {
 
   return res.json(Array.from(grouped.values()));
 });
+
+postsRouter.get('/:id', async (req, res) => {
+  const id = Number(req.params.id);
+
+  if (!Number.isInteger(id) || id <= 0) {
+    return res.status(400).json({ error: 'invalid post id' });
+  }
+
+  const post = await db.query.posts.findFirst({
+    where: (posts, { eq }) => eq(posts.id, id),
+    with: {
+      author: true,
+      comments: {
+        with: {
+          author: true
+        }
+      }
+    }
+  });
+
+  if (!post) {
+    return res.status(404).json({ error: 'post not found' });
+  }
+
+  return res.json(post);
+});
+
+postsRouter.delete('/:id', async (req, res) => {
+  const id = Number(req.params.id);
+
+  if (!Number.isInteger(id) || id <= 0) {
+    return res.status(400).json({ error: 'invalid post id' });
+  }
+
+  const deleted = await db
+    .delete(posts)
+    .where(eq(posts.id, id))
+    .returning({ id: posts.id });
+
+  if (deleted.length === 0) {
+    return res.status(404).json({ error: 'post not found' });
+  }
+
+  // comments se borran solas por ON DELETE CASCADE
+  return res.status(204).send();
+});

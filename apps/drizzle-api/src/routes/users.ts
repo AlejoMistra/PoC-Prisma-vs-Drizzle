@@ -64,6 +64,28 @@ usersRouter.post('/with-post', async (req, res) => {
   return res.status(201).json(created);
 });
 
+usersRouter.get('/:id', async (req, res) => {
+  const id = Number(req.params.id);
+
+  if (!Number.isInteger(id) || id <= 0) {
+    return res.status(400).json({ error: 'invalid user id' });
+  }
+
+  const user = await db.query.users.findFirst({
+    where: (users, { eq }) => eq(users.id, id),
+    with: {
+      posts: true,
+      comments: true,
+    },
+  });
+
+  if (!user) {
+    return res.status(404).json({ error: 'user not found' });
+  }
+
+  return res.json(user);
+});
+
 usersRouter.delete('/:id', async (req, res) => {
   const id = Number(req.params.id);
   if (!Number.isInteger(id) || id <= 0) {
