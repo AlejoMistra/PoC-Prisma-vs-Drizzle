@@ -15,7 +15,7 @@ postsRouter.post('/', async (req, res) => {
   }
 
   const post = await prisma.post.create({
-    data: { title, content, authorId }
+    data: { title, content, authorId },
   });
 
   return res.status(201).json(post);
@@ -27,10 +27,10 @@ postsRouter.get('/with-relations', async (_req, res) => {
       author: true,
       comments: {
         include: {
-          author: true
-        }
-      }
-    }
+          author: true,
+        },
+      },
+    },
   });
 
   res.json(posts);

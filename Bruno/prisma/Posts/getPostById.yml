@@ -5,7 +5,7 @@ info:
 
 http:
   method: GET
-  url: http://localhost:{{PRISMA_API_PORT}}/posts/{{POST_ID}}
+  url: http://localhost:{{PRISMA_API_PORT}}/posts/2
   auth: inherit
 
 settings:

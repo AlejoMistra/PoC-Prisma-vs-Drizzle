@@ -6,6 +6,17 @@ info:
 http:
   method: POST
   url: http://localhost:{{DRIZZLE_API_PORT}}/users/with-post
+  body:
+    type: json
+    data: |-
+      {
+              "name": "Diego Martinez",
+              "email": "diego.martinez+demo@acmeops.io",
+              "post": {
+                "title": "Plan de hardening de APIs",
+                "content": "Rate limiting por tenant y rotación de secretos."
+              }
+            }
   auth: inherit
 
 settings:

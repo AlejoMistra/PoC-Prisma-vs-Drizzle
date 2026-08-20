@@ -6,19 +6,15 @@ info:
 http:
   method: POST
   url: http://localhost:{{DRIZZLE_API_PORT}}/comments
+  body:
+    type: json
+    data: |-
+      {
+              "content": "Excelente enfoque, quedó muy claro.",
+              "postId": 1,s
+              "authorId": 1
+            }
   auth: inherit
-
-headers:
-  Content-Type: application/json
-
-body:
-  mimeType: application/json
-  text: |
-    {
-      "content": "Comentario Drizzle",
-      "postId": {{POST_ID}},
-      "authorId": {{USER_ID}}
-    }
 
 settings:
   encodeUrl: true

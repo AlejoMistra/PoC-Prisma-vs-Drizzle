@@ -6,6 +6,9 @@ info:
 http:
   method: POST
   url: http://localhost:{{DRIZZLE_API_PORT}}/users
+  body:
+    type: json
+    data: ""
   auth: inherit
 
 settings:

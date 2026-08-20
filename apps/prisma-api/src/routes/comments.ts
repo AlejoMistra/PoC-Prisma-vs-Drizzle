@@ -11,12 +11,25 @@ commentsRouter.post('/', async (req, res) => {
   };
 
   if (!content || !postId || !authorId) {
-    return res.status(400).json({ error: 'content, postId and authorId are required' });
+    return res
+      .status(400)
+      .json({ error: 'content, postId and authorId are required' });
   }
 
   const comment = await prisma.comment.create({
-    data: { content, postId, authorId }
+    data: { content, postId, authorId },
   });
 
   return res.status(201).json(comment);
+});
+
+//obtener comentarios con sus relaciones
+commentsRouter.get('/with-relations', async (req, res) => {
+  const comments = await prisma.comment.findMany({
+    include: {
+      author: true,
+      post: true,
+    },
+  });
+  res.json(comments);
 });

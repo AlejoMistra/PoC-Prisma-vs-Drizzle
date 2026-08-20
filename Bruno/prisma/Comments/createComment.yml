@@ -6,19 +6,15 @@ info:
 http:
   method: POST
   url: http://localhost:{{PRISMA_API_PORT}}/comments
+  body:
+    type: json
+    data: |-
+      {
+              "content": "Muy buena priorización para impacto rápido.",
+              "postId": 1,
+              "authorId": 1
+      }
   auth: inherit
-
-headers:
-  Content-Type: application/json
-
-body:
-  mimeType: application/json
-  text: |
-    {
-      "content": "Comentario Prisma",
-      "postId": {{POST_ID}},
-      "authorId": {{USER_ID}}
-    }
 
 settings:
   encodeUrl: true
