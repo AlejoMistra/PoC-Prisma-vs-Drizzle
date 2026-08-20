@@ -14,8 +14,9 @@
     "db:up": "docker compose up -d",
     "db:down": "docker compose down",
     "prisma:migrate": "pnpm --filter prisma-api run prisma:migrate",
+    "drizzle:generate": "pnpm --filter drizzle-api run drizzle:generate",
     "drizzle:migrate": "pnpm --filter drizzle-api run drizzle:migrate",
-    "drizzle:generate": "pnpm --filter drizzle-api run drizzle:generate"
+    "drizzle:studio": "pnpm --filter drizzle-api run drizzle:studio"
   },
   "repository": {
     "type": "git",
