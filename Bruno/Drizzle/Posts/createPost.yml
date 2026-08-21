@@ -1,7 +1,7 @@
 info:
   name: Create post
   type: http
-  seq: 3
+  seq: 1
 
 http:
   method: POST
@@ -10,10 +10,10 @@ http:
     type: json
     data: |-
       {
-              "title": "Roadmap Q4: onboarding y SLAs",
-              "content": "Priorizamos onboarding autoguiado y seguimiento de SLAs por cliente.",
-              "authorId": 1
-            }
+        "title": "Me gusta el control que permite Drizzle",
+        "content": "Drizzle permite un control más fino sobre las relaciones y consultas, lo que lo hace ideal para proyectos que requieren un ORM más cercano a SQL",
+        "authorId": 1
+      }
   auth: inherit
 
 settings:

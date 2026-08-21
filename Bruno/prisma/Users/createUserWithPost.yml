@@ -6,22 +6,18 @@ info:
 http:
   method: POST
   url: http://localhost:{{PRISMA_API_PORT}}/users/with-post
-  auth: inherit
-
-headers:
-  Content-Type: application/json
-
-body:
-  mimeType: application/json
-  text: |
-    {
-      "name": "User With Post Prisma",
-      "email": "user.with.post.prisma@mail.com",
-      "post": {
-        "title": "Post anidado Prisma",
-        "content": "Creado junto al usuario"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Martin Sanchez",
+        "email": "sanchezMartin@hotmail.com",
+        "post": {
+          "title": "Mi primer post usando la API de Prisma",
+          "content": "Estoy aprendiendo a usar Prisma y me parece una herramienta muy útil para interactuar con la base de datos de manera más sencilla y segura"
+        }
       }
-    }
+  auth: inherit
 
 settings:
   encodeUrl: true

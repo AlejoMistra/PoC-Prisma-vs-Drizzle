@@ -1,7 +1,7 @@
 info:
   name: Create user
   type: http
-  seq: 1
+  seq: 3
 
 http:
   method: POST
@@ -11,7 +11,11 @@ http:
       value: application/json
   body:
     type: json
-    data: ""
+    data: |-
+      {
+        "name": "Juan Gomez",
+        "email": "JuanGomez@gmail.com"
+      }
   auth: inherit
 
 settings:

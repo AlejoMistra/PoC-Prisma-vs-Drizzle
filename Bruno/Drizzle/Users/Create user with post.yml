@@ -1,7 +1,7 @@
 info:
   name: Create user with post
   type: http
-  seq: 5
+  seq: 4
 
 http:
   method: POST
@@ -13,8 +13,8 @@ http:
         "name": "Luis Suárez",
         "email": "luis.suarez+demo@acmeops.io",
         "post": {
-          "title": "Prueba",
-          "content": "Prueba."
+          "title": "Mi primer post en Drizzle!",
+          "content": "User creado desde Bruno para la API de Drizzle"
         }
       }
   auth: inherit

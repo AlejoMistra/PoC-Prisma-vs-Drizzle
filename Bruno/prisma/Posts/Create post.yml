@@ -1,7 +1,7 @@
 info:
   name: Create post
   type: http
-  seq: 5
+  seq: 4
 
 http:
   method: POST
@@ -10,8 +10,8 @@ http:
     type: json
     data: |-
       {
-        "title": "Prueba",
-        "content": "Prueba",
+        "title": "Post desde Bruno a la API de Prisma",
+        "content": "Probando la demo en vivo, aprendimos como funciona Prisma!",
         "authorId": 2
       }
   auth: inherit

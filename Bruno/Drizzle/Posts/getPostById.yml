@@ -6,6 +6,12 @@ info:
 http:
   method: GET
   url: http://localhost:{{DRIZZLE_API_PORT}}/posts/1
+  body:
+    type: json
+    data: |-
+      {
+        "id": 1
+      }
   auth: inherit
 
 settings:

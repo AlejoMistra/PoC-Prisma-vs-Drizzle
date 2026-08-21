@@ -1,7 +1,7 @@
 info:
   name: create comment
   type: http
-  seq: 5
+  seq: 4
 
 http:
   method: POST
@@ -10,9 +10,9 @@ http:
     type: json
     data: |-
       {
-        "content": "Prueba",
+        "content": "Muy buen post, yo también estoy aprendiendo mucho sobre Prisma!",
         "postId": 1,
-        "authorId": 1
+        "authorId": 3
       }
   auth: inherit
 

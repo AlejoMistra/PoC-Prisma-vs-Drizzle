@@ -1,7 +1,5 @@
 ### =========================================
 ### PRISMA API
-### Base URL sugerida:
-### @basePrisma = http://localhost:3001
 ### =========================================
 
 @basePrisma = http://localhost:3001
@@ -12,16 +10,26 @@
 ### Users - get all
 GET {{basePrisma}}/users
 
-### Users - get by id
-GET {{basePrisma}}/users/{{userId}}
-
 ### Users - create
 POST {{basePrisma}}/users
 Content-Type: application/json
 
 {
-  "name": "Sofía Martínez",
-  "email": "sofia.martinez+demo@acmeops.io"
+  "name": "Ramiro Martínez",
+  "email": "ramiro.martinez+demo@gmail.com"
+}
+
+### Users - get by id
+GET {{basePrisma}}/users/{{userId}}
+
+### Posts - create #1
+POST {{basePrisma}}/posts
+Content-Type: application/json
+
+{
+  "title": "Mis primer post usando la API de Prisma",
+  "content": "Arrancando esta cuenta para compartir lo que voy aprendiendoo!",
+  "authorId": 1
 }
 
 ### Users - create with post
@@ -29,25 +37,26 @@ POST {{basePrisma}}/users/with-post
 Content-Type: application/json
 
 {
-  "name": "Lucía Navarro",
-  "email": "lucia.navarro+demo@acmeops.io",
+  "name": "Pedro Navarro",
+  "email": "pedro.navarrodemo@acmeops.io",
   "post": {
-    "title": "Kickoff automatización de soporte",
-    "content": "Reducir tiempos operativos con reglas de asignación."
+    "title": "Mi primer post usando la API de Prisma",
+    "content": "¡Probando cómo se siente crear contenido con Prisma ORM!"
   }
 }
 
 ### Users - delete
-DELETE {{basePrisma}}/users/{{userId}}
+DELETE {{basePrisma}}/users/1
 
-### Posts - create
+
+### Posts - create #2
 POST {{basePrisma}}/posts
 Content-Type: application/json
 
 {
-  "title": "Roadmap Q4: onboarding y SLAs",
-  "content": "Priorizamos onboarding autoguiado y seguimiento de SLAs por cliente.",
-  "authorId": 1
+  "title": "Qué es Prisma?",
+  "content": "Es un ORM que nos permite interactuar con la base de datos de manera más sencilla y segura",
+  "authorId": 2
 }
 
 ### Posts - get with relations
@@ -59,24 +68,31 @@ GET {{basePrisma}}/posts/{{postId}}
 ### Posts - delete (cascade comments)
 DELETE {{basePrisma}}/posts/{{postId}}
 
-### Comments - create
+
+### ---- Comments (por separado) ----
+
+### Comments - create #1 (sobre post #1)
 POST {{basePrisma}}/comments
 Content-Type: application/json
 
 {
-  "content": "Muy buena priorización para impacto rápido.",
+  "content": "Felicitaciones, muy interesante tu post!",
   "postId": 1,
-  "authorId": 1
+  "authorId": 2
 }
 
-### Comments - get all
-GET {{basePrisma}}/comments
+### Comments - create #2 (sobre post #2)
+POST {{basePrisma}}/comments
+Content-Type: application/json
 
+{
+  "content": "Interesante!",
+  "postId": 2,
+  "authorId": 2
+}
 
 ### =========================================
 ### DRIZZLE API
-### Base URL sugerida:
-### @baseDrizzle = http://localhost:3002
 ### =========================================
 
 @baseDrizzle = http://localhost:3002
@@ -104,26 +120,41 @@ POST {{baseDrizzle}}/users/with-post
 Content-Type: application/json
 
 {
-  "name": "Diego Suárez",
-  "email": "diego.suarez+demo@acmeops.io",
+  "name": "Diego Gomez",
+  "email": "diego.gomez+demo@acmeops.io",
   "post": {
-    "title": "Plan de hardening de APIs",
-    "content": "Rate limiting por tenant y rotación de secretos."
+    "title": "Mi primer post usando la API de Drizzle",
+    "content": "Probando crear una publicación con Drizzle ORM!"
   }
 }
 
 ### Users - delete
 DELETE {{baseDrizzle}}/users/{{dUserId}}
 
-### Posts - create
+
+### ---- Posts (por separado) ----
+
+### Posts - create #1
 POST {{baseDrizzle}}/posts
 Content-Type: application/json
 
 {
-  "title": "Refactor de autenticación",
-  "content": "Middleware de sesión y refresh tokens.",
+  "title": "Primera vez usando Drizzle ORM",
+  "content": "La forma en que Drizzle maneja las relaciones es muy interesante, permite mayor control que Prisma!",
   "authorId": 1
 }
+
+### Posts - create #2
+POST {{baseDrizzle}}/posts
+Content-Type: application/json
+
+{
+  "title": "Drizzle es una buena alternativa a Prisma",
+  "content": "Si estas buscando un ORM cercano a SQL, Drizzle es una excelente opción para tus proyectos!",
+  "authorId": 2
+}
+
+
 
 ### Posts - get with relations (relational query)
 GET {{baseDrizzle}}/posts/with-relations-rq
@@ -134,18 +165,44 @@ GET {{baseDrizzle}}/posts/with-relations-join
 ### Posts - get by id
 GET {{baseDrizzle}}/posts/{{dPostId}}
 
-### Posts - delete (cascade comments)
-DELETE {{baseDrizzle}}/posts/{{dPostId}}
+### ---- Comments (por separado) ----
 
-### Comments - create
+### Comments - create #1 (sobre post #1)
 POST {{baseDrizzle}}/comments
 Content-Type: application/json
 
 {
-  "content": "Excelente enfoque, quedó muy claro.",
+  "content": "Muy buen post, estoy aprendiendo mucho sobre Drizzle!",
   "postId": 1,
+  "authorId": 2
+}
+
+### Comments - create #2 (sobre post #2)
+POST {{baseDrizzle}}/comments
+Content-Type: application/json
+
+{
+  "content": "Totalmente de acuerdo, Drizzle es una excelente opción para proyectos que requieren un ORM más cercano a SQL",
+  "postId": 2,
   "authorId": 1
 }
 
-### Comments - get all
-GET {{baseDrizzle}}/comments
+### Comments - create #1 (sobre post #1)
+POST {{baseDrizzle}}/comments
+Content-Type: application/json
+
+{
+  "content": "Felicitaciones, muy interesante tu post!",
+  "postId": 1,
+  "authorId": 2
+}
+
+### Comments - create #2 (sobre post #2)
+POST {{baseDrizzle}}/comments
+Content-Type: application/json
+
+{
+  "content": "Interesante!",
+  "postId": 2,
+  "authorId": 2
+}

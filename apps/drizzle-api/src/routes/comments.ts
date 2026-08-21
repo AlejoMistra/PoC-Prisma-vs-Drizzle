@@ -69,5 +69,5 @@ commentsRouter.get('/with-relations-join', async (req, res) => {
       title: row.postTitle,
     },
   }));
-  return res.json(formatted);
+  return res.json(rows);
 });
